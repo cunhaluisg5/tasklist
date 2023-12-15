@@ -4,6 +4,7 @@ import authMiddlewares from './app/middlewares/auth.js';
 
 import UserController from './app/controllers/UserController.js';
 import SessionController from './app/controllers/SessionController.js';
+import TaskController from './app/controllers/TaskController.js';
 
 const routes = new Router();
 
@@ -16,5 +17,8 @@ routes.post('/sessions', SessionController.store);
 routes.use(authMiddlewares);
 
 routes.put('/users', UserController.update);
+
+routes.post('/tasks', TaskController.store);
+routes.get('/tasks', TaskController.index);
 
 export default routes;
